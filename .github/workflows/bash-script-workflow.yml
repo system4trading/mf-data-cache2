@@ -15,7 +15,4 @@ jobs:
     - run: |
         git config user.name "amfi-bot"
         git config user.email "bot@github.com"
-        git add .
-        git commit -m "Auto update MF & Nifty data" || true
-        git push
-    
+
