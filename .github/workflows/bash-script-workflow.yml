@@ -13,6 +13,6 @@ jobs:
       # Ensure the script file (e.g., myscript.sh) exists in your repo
       run: bash ./bashscript.sh
     - run: |
-        git config user.name "amfi-bot"
-        git config user.email "bot@github.com"
+        git config --global user.name "amfi-bot"
+        git config --global user.email "bot@github.com"
 
