@@ -14,4 +14,4 @@
       else
         git commit -m "Daily AMFI NAV update"
         git push
-      fi
+        
