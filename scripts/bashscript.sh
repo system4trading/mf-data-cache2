@@ -90,7 +90,8 @@ node scripts/build_category_avg.js
 # Commit & push data
 # -------------------------------
 echo "🚀 Pushing updated data to GitHub..."
-
+git config user.name "amfi-bot"
+git config user.email "bot@github.com"
 git add .
 git commit -m "Daily MF & Nifty data update" || echo "ℹ️ No changes to commit"
 git push
