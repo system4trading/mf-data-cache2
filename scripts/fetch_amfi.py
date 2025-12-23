@@ -5,7 +5,7 @@ URL = "https://www.amfiindia.com/spages/NAVAll.txt"
 res = requests.get(URL, timeout=30)
 lines = res.text.splitlines()
 
-hist = ticker.history(period="10y")
+hist = scheme_code.history(period="10y")
 
 data = {}
 for line in lines:
