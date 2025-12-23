@@ -1,24 +1,17 @@
-name: Update AMFI NAV
+  - name: Fetch AMFI NAV
+    run: |
+      curl -fsS -o amfi.txt https://www.amfiindia.com/spages/NAVAll.txt
+      # parse & split per scheme here (if needed)
 
-on:
-  schedule:
-    - cron: '30 18 * * *'   # Daily after market
-  workflow_dispatch:
-
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Fetch AMFI NAV
-        run: |
-          curl -o amfi.txt https://www.amfiindia.com/spages/NAVAll.txt
-          # parse & split per scheme here
-      - name: Commit
-        run: |
-          git config user.name "amfi-bot"
-          git config user.email "bot@github.com"
-          git add .
-          git commit -m "Daily AMFI NAV update" || true
-          git push
-
+  - name: Commit and push changes (if any)
+    run: |
+      git config user.name "amfi-bot"
+      git config user.email "bot@github.com"
+      git add amfi.txt
+      # if there are staged changes, commit and push
+      if git diff --cached --quiet; then
+        echo "No changes to commit"
+      else
+        git commit -m "Daily AMFI NAV update"
+        git push
+      fi
