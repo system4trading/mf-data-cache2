@@ -19,5 +19,5 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Run maintenance script
+      - name: Run bash script
         run: bash ./scripts/bashscript.sh
