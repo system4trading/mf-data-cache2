@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest # Use a Linux runner
     steps:
     - run: |
-        git config user.name "bot"
+        git config user.name "amfi-bot"
         git config user.email "bot@github.com"
 
     - uses: actions/checkout@v4 # Check out your repository code
