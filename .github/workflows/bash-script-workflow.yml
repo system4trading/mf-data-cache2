@@ -1,15 +1,25 @@
 name: Run Bash Script
 
-on: [push] # Trigger on every push to the repository
+permissions:
+  contents: write
+
+on:
+  push:
 
 jobs:
   build-and-run:
-    runs-on: ubuntu-latest # Use a Linux runner
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4 # Check out your repository code
-    - name: Run a Bash command inline
-      run: echo "Hello from GitHub Actions Bash"
-    - name: Run a script from file
-      # Ensure the script file (e.g., myscript.sh) exists in your repo
-      run: bash ./bashscript.sh
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run maintenance script
+        run: bash ./scripts/bashscript.sh
+
+        
