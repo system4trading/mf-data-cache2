@@ -25,6 +25,9 @@ jobs:
       - name: Fetch Nifty 50
         run: python scripts/fetch_nifty.py
 
+      - name: Fetch Category Avg
+        run: node scripts/build_category_avg.js
+
       - name: Commit & Push
         run: |
           git config user.name "github-actions"
